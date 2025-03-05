@@ -5,7 +5,7 @@ from .forms import BookForm
 # Home view
 def home(request):
     books = Book.objects.all()
-    return render(request, 'home.html', {'books': books})
+    return render(request, 'index.html', {'books': books})
 
 # Add book view
 def add_book(request):
