@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block title %}{% if
+form.instance.pk %}Update{% else %}Add{% endif %} Book- My Library{% endblock %}
+{% block content %}
+<div class="container">
+  <h1 class="my-4">
+    {% if form.instance.pk %}Update{% else %}Add{% endif %} Book
+  </h1>
+  <form method="post" class="needs-validation" novalidate>
+    {% csrf_token %} {{ form|crispy }}
+    <button type="submit" class="btn btn-success">
+      {% if form.instance.pk %}Update{% else %}Add{% endif %} Book
+    </button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}
